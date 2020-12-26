@@ -1,24 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
+class Flipkart
+{
+  constructor(name)
+  {
+    this.name=name;
+  }
+  getFlipkart()
+  {
+    return "my name is:"+this.name;
+  }
+}
 function App() {
+  const fname=new Flipkart("karop");
+  const [Toggle,A]=useState(true);
+  const click=()=>{
+   const presentState=Toggle;
+   A(!presentState)
+  }
+  let displayContent="Open";
+  if(Toggle){
+    displayContent="closed";
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div>
+     <button onClick={click}>click</button>
+     <div className="content">
+       {displayContent}
+      
+     </div>
+     {fname.getFlipkart()}
+   </div>
   );
 }
 
